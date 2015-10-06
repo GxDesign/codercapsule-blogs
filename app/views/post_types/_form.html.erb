@@ -1,0 +1,33 @@
+<%= form_for(@post_type) do |f| %>
+  <% if @post_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post_type.errors.count, "error") %> prohibited this post_type from being saved:</h2>
+
+      <ul>
+      <% @post_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :icon %><br>
+    <%= f.text_field :icon %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :begin_html %><br>
+    <%= f.text_area :begin_html %>
+  </div>
+  <div class="field">
+    <%= f.label :end_html %><br>
+    <%= f.text_area :end_html %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

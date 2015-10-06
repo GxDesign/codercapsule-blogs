@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  resources :post_tags
+
+  resources :teacher_classes
+
+  resources :post_types
+
+  resources :tags
+
+  resources :posts
+
+  resources :classrooms
+
+  resources :teachers
+
+  resources :students
+
+  resources :schools
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

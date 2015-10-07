@@ -1,0 +1,12 @@
+<html>
+<% @post.each do |post| %>
+  <tr> 
+    <h1><%= post.title %></h1>
+    <br>
+    <td><%= post.content.html_safe %></td>
+    <br>
+    <br>
+  </tr>
+<% end %>
+
+</html>

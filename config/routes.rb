@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+  get 'welcome/new'
+
   resources :post_tags
 
   resources :teacher_classes

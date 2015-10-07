@@ -21,8 +21,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'figaro'
 
-# Added the jquery user interface
+# Use the jquery user interface
 gem 'jquery-ui-rails'
+
+# Use the jquery autocomplete functionality
+gem 'rails-jquery-autocomplete'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

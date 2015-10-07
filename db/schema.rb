@@ -14,11 +14,14 @@
 ActiveRecord::Schema.define(version: 20151006193952) do
 
   create_table "classrooms", force: :cascade do |t|
+    t.integer  "school_id"
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "classrooms", ["school_id"], name: "index_classrooms_on_school_id"
 
   create_table "post_tags", force: :cascade do |t|
     t.integer  "post_id"
@@ -42,7 +45,6 @@ ActiveRecord::Schema.define(version: 20151006193952) do
   create_table "posts", force: :cascade do |t|
     t.integer  "author_id"
     t.string   "title"
-    t.integer  "type_id"
     t.text     "content"
     t.datetime "created_at",   null: false
     t.boolean  "published"
@@ -52,7 +54,6 @@ ActiveRecord::Schema.define(version: 20151006193952) do
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
-    t.string   "street_address"
     t.integer  "street_number"
     t.string   "route"
     t.string   "city"
@@ -65,8 +66,10 @@ ActiveRecord::Schema.define(version: 20151006193952) do
     t.string   "password"
     t.string   "avatar"
     t.text     "description"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "slack_token"
+    t.string   "slack_channel"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "students", force: :cascade do |t|
@@ -106,6 +109,7 @@ ActiveRecord::Schema.define(version: 20151006193952) do
 
   create_table "teachers", force: :cascade do |t|
     t.integer  "school_id"
+    t.integer  "classroom_id"
     t.string   "avatar"
     t.string   "firstname"
     t.string   "lastname"
@@ -120,6 +124,7 @@ ActiveRecord::Schema.define(version: 20151006193952) do
     t.datetime "updated_at",       null: false
   end
 
+  add_index "teachers", ["classroom_id"], name: "index_teachers_on_classroom_id"
   add_index "teachers", ["school_id"], name: "index_teachers_on_school_id"
 
 end

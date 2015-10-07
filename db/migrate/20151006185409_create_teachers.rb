@@ -2,6 +2,7 @@ class CreateTeachers < ActiveRecord::Migration
   def change
     create_table :teachers do |t|
       t.belongs_to :school, index: true
+      t.belongs_to :classroom, index: true
       t.string :avatar
       t.string :firstname
       t.string :lastname
@@ -16,5 +17,6 @@ class CreateTeachers < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_foreign_key :teachers, :schools
+    add_foreign_key :teachers, :classrooms
   end
 end

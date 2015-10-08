@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>School</th>
       <th>Firstname</th>
       <th>Lastname</th>
@@ -13,8 +14,6 @@
       <th>Username</th>
       <th>Blog url</th>
       <th>Password</th>
-      <th>Blog title</th>
-      <th>Blog description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +21,7 @@
   <tbody>
     <% @teachers.each do |teacher| %>
       <tr>
+        <td><%= teacher.id %></td>
         <td><%= teacher.school %></td>
         <td><%= teacher.firstname %></td>
         <td><%= teacher.lastname %></td>
@@ -30,8 +30,6 @@
         <td><%= teacher.username %></td>
         <td><%= teacher.blog_url %></td>
         <td><%= teacher.password %></td>
-        <td><%= teacher.blog_title %></td>
-        <td><%= teacher.blog_description %></td>
         <td><%= link_to 'Show', teacher %></td>
         <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
         <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>

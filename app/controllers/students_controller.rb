@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+   @students = Student.all
   end
 
   # GET /students/1
@@ -24,6 +24,7 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
+
     @student = Student.new(student_params)
 
     respond_to do |format|
@@ -35,6 +36,7 @@ class StudentsController < ApplicationController
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /students/1
@@ -69,6 +71,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:school_id, :classroom_id, :firstname, :lastname, :email, :username, :blog_url, :password, :blog_title, :blog_description)
+      params.permit(:search, :school_id, :classroom_id, :firstname, :lastname, :email, :username, :blog_url, :password, :blog_title, :blog_description)
     end
 end

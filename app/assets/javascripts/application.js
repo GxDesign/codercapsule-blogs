@@ -17,3 +17,14 @@
 //= require_tree .
 
 
+
+$(function() {
+  $("#students th a, #students .pagination a").on("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#students_search input").keyup(function() {
+    $.get($("#students_search").attr("action"), $("#students_search").serialize(), null, "script");
+    return false;
+  });
+});

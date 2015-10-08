@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006193952) do
+ActiveRecord::Schema.define(version: 20151007191058) do
 
   create_table "classrooms", force: :cascade do |t|
     t.integer  "school_id"
@@ -42,15 +42,8 @@ ActiveRecord::Schema.define(version: 20151006193952) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.integer  "author_id"
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at",   null: false
-    t.boolean  "published"
-    t.datetime "published_at"
-    t.datetime "updated_at",   null: false
-  end
+# Could not dump table "posts" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"

@@ -2,44 +2,56 @@
 
 <h1>Listing Students</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>School</th>
-      <th>Classroom</th>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Email</th>
-      <th>Username</th>
-      <th>Blog url</th>
-      <th>Password</th>
-      <th>Blog title</th>
-      <th>Blog description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td><%= student.school %></td>
-        <td><%= student.classroom %></td>
-        <td><%= student.firstname %></td>
-        <td><%= student.lastname %></td>
-        <td><%= student.email %></td>
-        <td><%= student.username %></td>
-        <td><%= student.blog_url %></td>
-        <td><%= student.password %></td>
-        <td><%= student.blog_title %></td>
-        <td><%= student.blog_description %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<form action="/searches" accept-charset="UTF-8" method="get" id="searchForm">
+<input name="utf8" type="hidden" value="✓">
+<input type="hidden" name="authenticity_token" value="IX25RkgVzUCkjjmzhX7DUYOQ00nl16BmCVygSZDba3zMbkUNe/iEGlSBelCR1ZW39KnYj/bK2btg4S2iIdD/lg==">
+<p>
+<input type="text" name="search" id="search">
+<input type="submit" value="Search" id="search_submit">
+</p>
+</form>
+<div id="result"></div>
 
-<br>
+<p id="notice"><%= notice %></p>
 
-<%= link_to 'New Student', new_student_path %>
+
+
+        <!-- the result of the search will be rendered inside this div -->
+        
+        <script>
+            /* attach a submit handler to the form */
+            $("#searchForm").submit(function(event) {
+                event.preventDefault();
+                /* get some values from elements on the page: */
+                var $form = $(this),
+                    term = $form.find('input[name="search"]').val(),
+                    url = $form.attr('action');
+
+                /* Send the data using post */
+                var getting = $.get(url, {
+                    search: term
+                });
+
+                /* Put the results in a div */
+                getting.done(function(data) {
+                    var content = $(data).find('#content');
+                    $("#result").empty().append(content);
+                });
+                
+            });
+
+
+        </script>
+
+<div id="students"><%= render 'students' %></div>
+
+
+
+
+
+
+
+
+
+<%= link_to 'New Student', new_student_path, remote: true %>

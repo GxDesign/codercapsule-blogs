@@ -2,22 +2,16 @@
 
 <h1>Listing Schools</h1>
 
-<table>
+<table class="index">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
-      <th>Street address</th>
-      <th>Street number</th>
-      <th>Route</th>
       <th>City</th>
-      <th>State</th>
       <th>Zip</th>
-      <th>Country</th>
       <th>Email</th>
       <th>Username</th>
       <th>Blog url</th>
-      <th>Password</th>
-      <th>Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,22 +19,16 @@
   <tbody>
     <% @schools.each do |school| %>
       <tr>
-        <td><%= school.name %></td>
-        <td><%= school.street_address %></td>
-        <td><%= school.street_number %></td>
-        <td><%= school.route %></td>
-        <td><%= school.city %></td>
-        <td><%= school.state %></td>
-        <td><%= school.zip %></td>
-        <td><%= school.country %></td>
-        <td><%= school.email %></td>
-        <td><%= school.username %></td>
-        <td><%= school.blog_url %></td>
-        <td><%= school.password %></td>
-        <td><%= school.description %></td>
-        <td><%= link_to 'Show', school %></td>
-        <td><%= link_to 'Edit', edit_school_path(school) %></td>
-        <td><%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= school.id %></td>
+        <td class="med"><%= school.name %></td>
+        <td class="med"><%= school.city %></td>
+        <td class="med"><%= school.zip %></td>
+        <td class="med"><%= school.email %></td>
+        <td class="med"><%= school.username %></td>
+        <td class="large"><%= school.blog_url %></td>
+        <td class="small"><%= link_to 'Show', school %></td>
+        <td class="small"><%= link_to 'Edit', edit_school_path(school) %></td>
+        <td class="small"><%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

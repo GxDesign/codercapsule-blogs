@@ -1,0 +1,8 @@
+
+
+table.index { width: 125%;;}
+td.small { width:80px;}
+td.med { width: 120px;}
+td.large { width: 160px;}
+
+td, th { padding: 8px !important;}

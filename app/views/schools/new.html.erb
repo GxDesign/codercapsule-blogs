@@ -8,6 +8,8 @@
 
 <form class="new_school" id="address" action="/schools" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="0+1W/nRcoNJHBH1qwtVJJbNgMvN6tc0ogZefgQSXWvs+/qq1R7HpiLcLPonWfh/DxFk5NWmotPXoKhJqtZzOEQ==">
 
+<label for="school_name">Name</label><br>
+<input name="school[name]" id="school_name"><br>
 <label for="street_number">Street number</label><br>
 <input name="school[street_number]" id="street_number"><br>
 <label for="route">Route</label><br>
@@ -20,6 +22,14 @@
 <input type="number" name="school[zip]" id="postal_code"><br>
 <label for="school_country">Country</label><br>
 <input type="text" name="school[country]" id="country"><br>
+<label for="school_email">Email</label><br>
+<input type="text" name="school[email]" id="school_email"><br>
+<label for="school_blog_url">Blog Url</label><br>
+<input type="text" name="school[blog_url]" id="school_blog_url">
+<label for="school_password">Password</label><br>
+<input type="password" name="school[password]" id="school_password"><br>
+<label for="school_description">Description</label><br>
+<input type="description" name="school[description]" id="school_description"><br>
   <div class="actions">
     <input type="submit" name="commit" value="Create School">
   </div>
